@@ -8,39 +8,39 @@ import kotlinx.coroutines.launch
 
 class ViewModelNote(app : Application): AndroidViewModel(app) {
 
-    lateinit var allStudent : MutableLiveData<List<RoomDataNote>>
+    lateinit var allNote : MutableLiveData<List<RoomDataNote>>
 
     init{
-        allStudent = MutableLiveData()
+        allNote = MutableLiveData()
         getAllStudent()
     }
     fun getAllStudentObservers(): MutableLiveData<List<RoomDataNote>> {
-        return allStudent
+        return allNote
     }
 
     fun getAllStudent() {
         GlobalScope.launch {
-            val userDao = RoomDatabaseNote.getInstance(getApplication())!!.studentDao()
-            val listStudet = userDao.getDataStudent()
-            allStudent.postValue(listStudet)
+            val userDao = RoomDatabaseNote.getInstance(getApplication())!!.noteDao()
+            val listNote = userDao.getNote()
+            allNote.postValue(listNote)
         }
     }
 
     fun insertStudent(entity: RoomDataNote){
-        val studentDao = RoomDatabaseNote.getInstance(getApplication())?.studentDao()
-        studentDao!!.insertStudent(entity)
+        val noteDao = RoomDatabaseNote.getInstance(getApplication())?.noteDao()
+        noteDao!!.insertNote(entity)
         getAllStudent()
     }
 
     fun deleteStudent(entity: RoomDataNote){
-        val userDao = RoomDatabaseNote.getInstance(getApplication())!!.studentDao()
-        userDao?.deleteStudent(entity)
+        val userDao = RoomDatabaseNote.getInstance(getApplication())!!.noteDao()
+        userDao?.deleteNote(entity)
         getAllStudent()
     }
 
     fun updateStudent(entity: RoomDataNote){
-        val userDao = RoomDatabaseNote.getInstance(getApplication())!!.studentDao()
-        userDao?.updateStudent(entity)
+        val userDao = RoomDatabaseNote.getInstance(getApplication())!!.noteDao()
+        userDao?.updateNote(entity)
         getAllStudent()
     }
 

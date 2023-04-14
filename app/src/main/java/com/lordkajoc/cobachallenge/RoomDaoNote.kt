@@ -6,15 +6,15 @@ import androidx.room.*
 interface RoomDaoNote {
 
     @Insert
-    fun insertStudent(student : RoomDataNote)
+    fun insertNote(note : RoomDataNote)
 
     @Query("SELECT * FROM RoomDataNote ORDER BY id DESC ")
-    fun getDataStudent() : List<RoomDataNote>
+    fun getNote() : List<RoomDataNote>
 
     @Delete
-    fun deleteStudent (note: RoomDataNote)
+    fun deleteNote (note: RoomDataNote)
 
     @Update
-    fun updateStudent(note: RoomDataNote)
+    fun updateNote(note: RoomDataNote)
 
 }

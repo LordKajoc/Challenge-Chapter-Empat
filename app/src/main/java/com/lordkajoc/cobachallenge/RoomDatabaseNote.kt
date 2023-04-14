@@ -8,7 +8,7 @@ import androidx.room.RoomDatabase
 @Database(entities = [RoomDataNote::class], version = 1)
 abstract class RoomDatabaseNote : RoomDatabase(){
 
-    abstract fun studentDao() : RoomDaoNote
+    abstract fun noteDao() : RoomDaoNote
 
     companion object{
         private var INSTANCE : RoomDatabaseNote? = null
@@ -17,7 +17,7 @@ abstract class RoomDatabaseNote : RoomDatabase(){
             if (INSTANCE == null){
                 synchronized(RoomDatabaseNote::class){
                     INSTANCE = Room.databaseBuilder(context.applicationContext,
-                        RoomDatabaseNote::class.java,"Student.db").build()
+                        RoomDatabaseNote::class.java,"Note.db").build()
                 }
             }
             return INSTANCE
