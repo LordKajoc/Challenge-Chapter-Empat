@@ -30,7 +30,7 @@ class AdapterNote (var listNote : List<RoomDataNote>) : RecyclerView.Adapter<Ada
             dbNote = RoomDatabaseNote.getInstance(it.context)
 
             GlobalScope.async {
-                ViewModelNote(Application()).deleteStudent(listNote[position])
+                ViewModelNote(Application()).deleteNote(listNote[position])
                 dbNote?.noteDao()?.deleteNote(listNote[position])
 //                val del = dbNote?.noteDao()?.deleteNote(listNote[position])
 //                (holder.itemView.context as HomeFragment)
