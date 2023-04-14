@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="note"
+            type="com.lordkajoc.cobachallenge.RoomDataNote" />
+
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        app:cardCornerRadius="15dp"
+        app:cardElevation="5dp"
+        android:layout_margin="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:id="@+id/klik"
+            android:padding="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="@{note.id}"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:id="@+id/tvId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:text="@{note.title}"
+                android:id="@+id/tvTitle"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_below="@+id/tvId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:text="@{note.content}"
+                android:id="@+id/tvContent"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_below="@+id/tvTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:padding="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/btnDeleteNote"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/ic_baseline_delete_24"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:id="@+id/btnEditNote"
+                android:layout_toLeftOf="@+id/btnDeleteNote"
+                android:layout_marginRight="3dp"
+                android:src="@drawable/ic_baseline_edit_24"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </RelativeLayout>
+
+
+    </androidx.cardview.widget.CardView>
+</layout>
