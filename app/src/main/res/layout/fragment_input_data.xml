@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:gravity="center_horizontal"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FragmentInputData">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tambah Data"
+        android:textColor="@color/black"
+        android:textSize="25dp"
+        android:layout_marginBottom="10dp"
+        />
+    <EditText
+        android:id="@+id/etNama"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:hint="Masukan Nama"
+        android:textColor="@color/black"
+        android:textSize="20dp"/>
+    <EditText
+        android:id="@+id/etStambuk"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:hint="Masukan Stambuk"
+        android:textColor="@color/black"
+        android:textSize="20dp"/>
+    <EditText
+        android:id="@+id/etJurusan"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:hint="Masukan Jurusan"
+        android:textColor="@color/black"
+        android:textSize="20dp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tambah Data"
+        android:id="@+id/btnTambah"
+        android:textAllCaps="false"/>
+</LinearLayout>

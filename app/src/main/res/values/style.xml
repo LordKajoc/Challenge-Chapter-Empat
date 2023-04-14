@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="textjudul">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:layout_marginTop">5dp</item>
+    </style>
+
+    <style name="textbody">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:layout_margin">5dp</item>
+    </style>
+
+    <style name="textasing">
+        <item name="android:textStyle">italic</item>
+    </style>
+
+    <style name="btn">
+        <item name="android:backgroundTint">@color/black</item>
+        <item name="android:textColor">@color/putih</item>
+        <item name="android:layout_margin">10dp</item>
+    </style>
+</resources>
