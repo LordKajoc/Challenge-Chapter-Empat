@@ -15,7 +15,7 @@
         android:layout_marginTop="30dp"
         android:textColor="@color/black"
         android:text="Register"
-        android:textSize="30dp"/>
+        android:textSize="30sp"/>
     <ImageView
         android:layout_marginTop="10dp"
         android:layout_width="250dp"
