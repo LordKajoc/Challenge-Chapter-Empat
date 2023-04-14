@@ -8,17 +8,16 @@ import kotlinx.coroutines.launch
 
 class ViewModelNote(app : Application): AndroidViewModel(app) {
 
-    lateinit var allNote : MutableLiveData<List<RoomDataNote>>
+    var allNote : MutableLiveData<List<RoomDataNote>> = MutableLiveData()
 
     init{
-        allNote = MutableLiveData()
-        getAllStudent()
+        getAllNote()
     }
-    fun getAllStudentObservers(): MutableLiveData<List<RoomDataNote>> {
+    fun getAllNoteObservers(): MutableLiveData<List<RoomDataNote>> {
         return allNote
     }
 
-    fun getAllStudent() {
+    fun getAllNote() {
         GlobalScope.launch {
             val userDao = RoomDatabaseNote.getInstance(getApplication())!!.noteDao()
             val listNote = userDao.getNote()
@@ -26,22 +25,22 @@ class ViewModelNote(app : Application): AndroidViewModel(app) {
         }
     }
 
-    fun insertStudent(entity: RoomDataNote){
+    fun insertNote(entity: RoomDataNote){
         val noteDao = RoomDatabaseNote.getInstance(getApplication())?.noteDao()
         noteDao!!.insertNote(entity)
-        getAllStudent()
+        getAllNote()
     }
 
-    fun deleteStudent(entity: RoomDataNote){
+    fun deleteNote(entity: RoomDataNote){
         val userDao = RoomDatabaseNote.getInstance(getApplication())!!.noteDao()
         userDao?.deleteNote(entity)
-        getAllStudent()
+        getAllNote()
     }
 
-    fun updateStudent(entity: RoomDataNote){
+    fun updateNote(entity: RoomDataNote){
         val userDao = RoomDatabaseNote.getInstance(getApplication())!!.noteDao()
         userDao?.updateNote(entity)
-        getAllStudent()
+        getAllNote()
     }
 
 }

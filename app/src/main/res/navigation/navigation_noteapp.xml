@@ -3,11 +3,69 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation_noteapp"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/fragmentSplashScreen">
 
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.lordkajoc.cobachallenge.FragmentHome"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_fragmentLogin"
+            app:destination="@id/fragmentLogin" />
+        <action
+            android:id="@+id/action_homeFragment_to_fragmentInputData"
+            app:destination="@id/fragmentInputData" />
+        <action
+            android:id="@+id/action_homeFragment_to_fragmentEditData"
+            app:destination="@id/fragmentEditData" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentSplashScreen"
+        android:name="com.lordkajoc.cobachallenge.FragmentSplashScreen"
+        android:label="fragment_splash_screen"
+        tools:layout="@layout/fragment_splash_screen" >
+        <action
+            android:id="@+id/action_fragmentSplashScreen_to_fragmentLogin"
+            app:destination="@id/fragmentLogin" />
+        <action
+            android:id="@+id/action_fragmentSplashScreen_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentEditData"
+        android:name="com.lordkajoc.cobachallenge.FragmentEditData"
+        android:label="fragment_edit_data"
+        tools:layout="@layout/fragment_edit_data" >
+        <action
+            android:id="@+id/action_fragmentEditData_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentInputData"
+        android:name="com.lordkajoc.cobachallenge.FragmentInputData"
+        android:label="fragment_input_data"
+        tools:layout="@layout/fragment_input_data" >
+        <action
+            android:id="@+id/action_fragmentInputData_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentLogin"
+        android:name="com.lordkajoc.cobachallenge.FragmentLogin"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_fragmentLogin_to_fragmentRegister"
+            app:destination="@id/fragmentRegister" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentRegister"
+        android:name="com.lordkajoc.cobachallenge.FragmentRegister"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register" >
+        <action
+            android:id="@+id/action_fragmentRegister_to_fragmentLogin"
+            app:destination="@id/fragmentLogin" />
+    </fragment>
 </navigation>
