@@ -4,6 +4,7 @@ import android.app.Application
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.lordkajoc.cobachallenge.databinding.ItemListBinding
@@ -28,13 +29,10 @@ class AdapterNote (var listNote : List<RoomDataNote>) : RecyclerView.Adapter<Ada
         holder.dataBinding(listNote[position])
         holder.binding.btnDeleteNote.setOnClickListener{
             dbNote = RoomDatabaseNote.getInstance(it.context)
-
+            Toast.makeText(it.context, "Note Telah Dihapus", Toast.LENGTH_SHORT).show()
             GlobalScope.async {
                 ViewModelNote(Application()).deleteNote(listNote[position])
                 dbNote?.noteDao()?.deleteNote(listNote[position])
-//                val del = dbNote?.noteDao()?.deleteNote(listNote[position])
-//                (holder.itemView.context as HomeFragment)
-//                    (holder.itemView.context as HomeFragment).getAllNote()
                 val nav = Navigation.findNavController(it)
                 nav.run{
                     navigate(R.id.homeFragment)
@@ -43,19 +41,11 @@ class AdapterNote (var listNote : List<RoomDataNote>) : RecyclerView.Adapter<Ada
         }
 
         holder.binding.btnEditNote.setOnClickListener {
-//            var move = Intent(it.context, FragmentHomeScreenEditDataBinding::class.java)
-//            move.putExtra("dataedit", listStudent[position])
-//            it.context.startActivity(move)
             val bundle = Bundle()
             bundle.putSerializable("note", listNote[position])
             Navigation.findNavController(it).navigate(R.id.action_homeFragment_to_fragmentEditData, bundle)
 
         }
-//        holder.binding.klik.setOnClickListener{
-//            var detail = Intent(it.context, DetailNoteActivity::class.java)
-//            detail.putExtra("detail", listNote[position])
-//            it.context.startActivity(detail)
-//        }
     }
 
 
@@ -63,8 +53,8 @@ class AdapterNote (var listNote : List<RoomDataNote>) : RecyclerView.Adapter<Ada
         return  listNote.size
     }
 
-    fun setData(listStudent: ArrayList<RoomDataNote>)
+    fun setData(listNote: ArrayList<RoomDataNote>)
     {
-        this.listNote=listStudent
+        this.listNote=listNote
     }
 }

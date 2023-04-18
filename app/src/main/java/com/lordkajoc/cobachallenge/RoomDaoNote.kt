@@ -8,8 +8,10 @@ interface RoomDaoNote {
     @Insert
     fun insertNote(note : RoomDataNote)
 
-    @Query("SELECT * FROM RoomDataNote ORDER BY id DESC ")
-    fun getNote() : List<RoomDataNote>
+    @Query("SELECT * FROM RoomDataNote ORDER BY title ASC ")
+    fun getNoteAsc() : List<RoomDataNote>
+    @Query("SELECT * FROM RoomDataNote ORDER BY title DESC ")
+    fun getNoteDesc() : List<RoomDataNote>
 
     @Delete
     fun deleteNote (note: RoomDataNote)

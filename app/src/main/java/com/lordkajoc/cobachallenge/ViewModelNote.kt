@@ -20,7 +20,7 @@ class ViewModelNote(app : Application): AndroidViewModel(app) {
     fun getAllNote() {
         GlobalScope.launch {
             val userDao = RoomDatabaseNote.getInstance(getApplication())!!.noteDao()
-            val listNote = userDao.getNote()
+            val listNote = userDao.getNoteAsc()
             allNote.postValue(listNote)
         }
     }

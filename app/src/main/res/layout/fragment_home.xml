@@ -2,13 +2,6 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <data>
-        <variable
-            name="student"
-            type="com.lordkajoc.cobachallenge.RoomDataNote" />
-
-    </data>
-
     <RelativeLayout
         android:padding="20dp"
         android:layout_width="match_parent"
@@ -28,14 +21,15 @@
                 android:text="Welcome, Username"
                 android:textColor="@color/black" />
 
-            <TextView
+            <ImageView
                 android:textSize="15sp"
                 android:layout_alignParentEnd="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Logout"
                 android:textColor="@color/black"
-                android:id="@+id/tvLogout" />
+                android:src="@drawable/ic_filter"
+                android:contextClickable="true"
+                android:id="@+id/iv_sort" />
         </RelativeLayout>
 
         <TextView
@@ -63,9 +57,18 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:src="@drawable/ic_baseline_add_24"
+            tools:ignore="ImageContrastCheck" />
 
-            />
-
+        <Button
+            android:textSize="15sp"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Logout"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/abu"
+            android:id="@+id/btnlogout" />
 
     </RelativeLayout>
 </layout>
