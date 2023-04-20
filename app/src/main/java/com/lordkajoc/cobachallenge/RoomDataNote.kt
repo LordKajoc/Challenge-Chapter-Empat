@@ -7,7 +7,7 @@ import java.io.Serializable
 @Entity
 data class RoomDataNote(
     @PrimaryKey(autoGenerate = true)
-    var id : Int,
-    var title : String,
-    var content : String
-): Serializable
+    var id: Int,
+    var title: String,
+    var content: String
+) : Serializable

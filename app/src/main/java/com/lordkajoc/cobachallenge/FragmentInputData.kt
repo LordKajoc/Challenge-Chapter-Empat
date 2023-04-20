@@ -6,12 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.DialogFragment
 import androidx.navigation.Navigation
 import com.lordkajoc.cobachallenge.databinding.FragmentInputDataBinding
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async
 
-class FragmentInputData : Fragment() {
+class FragmentInputData : DialogFragment() {
 
     lateinit var binding : FragmentInputDataBinding
     var dbNote : RoomDatabaseNote? = null
@@ -33,8 +34,8 @@ class FragmentInputData : Fragment() {
 
         binding.btnTambah.setOnClickListener{
             addNote()
-            Toast.makeText(context, "Tambah Note berhasil", Toast.LENGTH_SHORT).show()
-            Navigation.findNavController(view).navigate(R.id.action_fragmentInputData_to_homeFragment)
+
+//            Navigation.findNavController(view).navigate(R.id.action_fragmentInputData_to_homeFragment)
         }
     }
 
@@ -42,9 +43,14 @@ class FragmentInputData : Fragment() {
         GlobalScope.async {
             var title = binding.titlenote.text.toString()
             var content = binding.contentnote.text.toString()
-
             dbNote!!.noteDao().insertNote(RoomDataNote(0, title, content))
+            Toast.makeText(context, "Tambah Note berhasil", Toast.LENGTH_SHORT).show()
         }
+        dismiss()
 //        finish()
+    }
+    override fun onDetach() {
+        super.onDetach()
+        activity?.recreate()
     }
 }

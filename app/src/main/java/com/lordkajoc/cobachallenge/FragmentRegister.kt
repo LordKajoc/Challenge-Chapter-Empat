@@ -13,15 +13,15 @@ import com.lordkajoc.cobachallenge.databinding.FragmentRegisterBinding
 
 class FragmentRegister : Fragment() {
 
-    lateinit var binding : FragmentRegisterBinding
-    lateinit var sharedRegis : SharedPreferences
+    lateinit var binding: FragmentRegisterBinding
+    lateinit var sharedRegis: SharedPreferences
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        binding = FragmentRegisterBinding.inflate(inflater,container,false)
+        binding = FragmentRegisterBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -30,7 +30,7 @@ class FragmentRegister : Fragment() {
 
         sharedRegis = requireContext().getSharedPreferences("dataUser", Context.MODE_PRIVATE)
 
-        binding.btnDaftar.setOnClickListener{
+        binding.btnDaftar.setOnClickListener {
             var getUsername = binding.etUsername.text.toString()
             var getFullName = binding.etEmail.text.toString()
             var getPass = binding.etPassword.text.toString()
@@ -41,12 +41,16 @@ class FragmentRegister : Fragment() {
             addUser.putString("email", getFullName)
             addUser.putString("password", getPass)
             addUser.putString("repeadPassword", getRepeatPass)
-            if(getPass == getRepeatPass){
+            if (getPass == getRepeatPass) {
                 addUser.apply()
                 Toast.makeText(context, "Register Berhasil", Toast.LENGTH_SHORT).show()
                 findNavController().navigate(R.id.action_fragmentRegister_to_fragmentLogin)
-            }else{
-                Toast.makeText(context, "Ulangi password yang anda masukan tidak sama", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(
+                    context,
+                    "Ulangi password yang anda masukan tidak sama",
+                    Toast.LENGTH_SHORT
+                ).show()
             }
 
         }

@@ -13,8 +13,8 @@ import androidx.navigation.fragment.findNavController
 import com.lordkajoc.cobachallenge.databinding.FragmentSplashScreenBinding
 
 class FragmentSplashScreen : Fragment() {
-    lateinit var binding : FragmentSplashScreenBinding
-    lateinit var sharedSplash : SharedPreferences
+    lateinit var binding: FragmentSplashScreenBinding
+    lateinit var sharedSplash: SharedPreferences
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,9 +28,9 @@ class FragmentSplashScreen : Fragment() {
 
             sharedSplash = requireContext().getSharedPreferences("dataUser", Context.MODE_PRIVATE)
 
-            if(sharedSplash.getString("user", "").equals("")){
+            if (sharedSplash.getString("user", "").equals("")) {
                 findNavController().navigate(R.id.action_fragmentSplashScreen_to_fragmentLogin)
-            }else if (sharedSplash.getString("user", "")!!.isNotEmpty()){
+            } else if (sharedSplash.getString("user", "")!!.isNotEmpty()) {
                 findNavController().navigate(R.id.action_fragmentSplashScreen_to_homeFragment)
             }
         }, 3000)

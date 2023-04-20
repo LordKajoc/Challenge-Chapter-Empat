@@ -13,8 +13,8 @@ import com.lordkajoc.cobachallenge.databinding.FragmentLoginBinding
 
 class FragmentLogin : Fragment() {
 
-    lateinit var binding : FragmentLoginBinding
-    lateinit var sharedLogin : SharedPreferences
+    lateinit var binding: FragmentLoginBinding
+    lateinit var sharedLogin: SharedPreferences
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -22,7 +22,7 @@ class FragmentLogin : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
 
-        binding = FragmentLoginBinding.inflate(inflater,container, false)
+        binding = FragmentLoginBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -31,25 +31,24 @@ class FragmentLogin : Fragment() {
 
         sharedLogin = requireContext().getSharedPreferences("dataUser", Context.MODE_PRIVATE)
 
-        binding.tvBelumPunyaAkun.setOnClickListener{
+        binding.tvBelumPunyaAkun.setOnClickListener {
             findNavController().navigate(R.id.action_fragmentLogin_to_fragmentRegister)
         }
-        binding.btnLogin.setOnClickListener{
+        binding.btnLogin.setOnClickListener {
             var getDataUser = sharedLogin.getString("email", "")
             var getDataPass = sharedLogin.getString("password", "")
             var user = binding.etEmail.text.toString()
             var pass = binding.etPassword.text.toString()
 
 
-            if (user.isEmpty() || pass.isEmpty()){
-                Toast.makeText(context, "Email dan Password tidak boleh kosong", Toast.LENGTH_SHORT).show()
-            }
-            else if(user == getDataUser.toString() && pass == getDataPass.toString()){
+            if (user.isEmpty() || pass.isEmpty()) {
+                Toast.makeText(context, "Email dan Password tidak boleh kosong", Toast.LENGTH_SHORT)
+                    .show()
+            } else if (user == getDataUser.toString() && pass == getDataPass.toString()) {
 
                 findNavController().navigate(R.id.action_fragmentLogin_to_homeFragment)
                 Toast.makeText(context, "Login Berhasil", Toast.LENGTH_SHORT).show()
-            }
-            else if(user != getDataUser.toString() || pass != getDataPass.toString()){
+            } else if (user != getDataUser.toString() || pass != getDataPass.toString()) {
                 Toast.makeText(context, "Email dan Pasword anda salah", Toast.LENGTH_SHORT).show()
             }
 

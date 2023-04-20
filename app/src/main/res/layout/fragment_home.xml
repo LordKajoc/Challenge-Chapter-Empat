@@ -1,54 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <RelativeLayout
-        android:padding="20dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:padding="20dp"
         tools:context=".FragmentHome">
 
-        <RelativeLayout
-            android:id="@+id/rlHomeScreen"
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/tb_home"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:textSize="15sp"
-                android:id="@+id/tvWelcome"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Welcome, Username"
-                android:textColor="@color/black" />
-
-            <ImageView
-                android:textSize="15sp"
-                android:layout_alignParentEnd="true"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:src="@drawable/ic_filter"
-                android:contextClickable="true"
-                android:id="@+id/iv_sort" />
-        </RelativeLayout>
+            android:layout_height="wrap_content"
+            android:background="@color/putih"
+            app:title="Welcome" />
 
         <TextView
-            android:layout_marginTop="30dp"
-            android:textColor="@color/black"
-            android:textSize="20sp"
             android:id="@+id/tvHome"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Home"
+            android:layout_below="@+id/tb_home"
             android:layout_centerHorizontal="true"
-            android:layout_below="@+id/rlHomeScreen" />
+            android:layout_marginTop="30dp"
+            android:text="Home"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:layout_marginTop="10dp"
-            android:layout_below="@+id/tvHome"
             android:id="@+id/rvHome"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvHome"
+            android:layout_marginTop="10dp" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/btnAddNote"
@@ -57,18 +41,18 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:src="@drawable/ic_baseline_add_24"
+            android:backgroundTint="@color/abu"
             tools:ignore="ImageContrastCheck" />
 
         <Button
-            android:textSize="15sp"
-            android:layout_centerHorizontal="true"
-            android:layout_alignParentBottom="true"
+            android:id="@+id/btnlogout"
+            style="@style/btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
             android:text="Logout"
-            android:textColor="@color/white"
-            android:backgroundTint="@color/abu"
-            android:id="@+id/btnlogout" />
+            android:textSize="15sp" />
 
     </RelativeLayout>
 </layout>
