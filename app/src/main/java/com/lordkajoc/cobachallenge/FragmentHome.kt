@@ -76,6 +76,7 @@ class FragmentHome : Fragment() {
                 }.setPositiveButton("Ya") { dialogInterface: DialogInterface, i: Int ->
                     val pref = sharedPreferences.edit()
                     pref.clear()
+                    pref.apply()
                     Toast.makeText(context, "Logout Berhasil", Toast.LENGTH_SHORT).show()
                     findNavController().navigate(R.id.action_homeFragment_to_fragmentLogin)
                 }.show()
